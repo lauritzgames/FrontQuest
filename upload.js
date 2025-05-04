@@ -16,7 +16,6 @@ uploadForm.addEventListener('submit', async (event) => {
     id: Date.now(), // Unique ID based on the current timestamp
     name: appName.value,
     description: appDescription.value,
-    category: appCategory.value,
     url: apkUrl.value,
     status: 'pending'  // App will be pending for approval
   };
