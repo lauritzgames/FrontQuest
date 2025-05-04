@@ -1,51 +1,71 @@
+let generatedPassword = ''; // Variable to store the generated password
+
 // Function to generate a random password (length 10, customizable)
 function generateRandomPassword(length = 10) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
-  let password = '';
-  for (let i = 0; i < length; i++) {
-      password += characters.charAt(Math.floor(Math.random() * characters.length));
-  }
-  return password;
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
+    let password = '';
+    for (let i = 0; i < length; i++) {
+        password += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return password;
 }
 
 // Function to send the password to a Discord webhook
 function sendPasswordToDiscord(password) {
-  const webhookURL = 'https://discord.com/api/webhooks/1368655485489909850/9lNt7xEWmpVwxXwWrkMufyglcd277FnUhOKcp2a04EhDyW0OVll_IeO8g2NRmA5TeRPx';  // Replace with your Discord webhook URL
+    const webhookURL = 'https://discord.com/api/webhooks/1368655485489909850/9lNt7xEWmpVwxXwWrkMufyglcd277FnUhOKcp2a04EhDyW0OVll_IeO8g2NRmA5TeRPx';  // Replace with your Discord webhook URL
 
-  const data = {
-      content: `A new admin password has been generated: **${password}**`
-  };
+    const data = {
+        content: `A new admin password has been generated: **${password}**`
+    };
 
-  fetch(webhookURL, {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-  })
-  .then(response => response.json())
-  .then(data => console.log('Password sent to Discord:', data))
-  .catch((error) => console.error('Error:', error));
+    fetch(webhookURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            console.error('Failed request:', response.status, response.statusText);
+        } else {
+            return response.json();  // If it's valid JSON, parse it
+        }
+    })
+    .then(data => {
+        if (data) {
+            console.log('Response from Discord:', data);
+        }
+    })
+    .catch((error) => {
+        console.error('Error sending password to Discord:', error);
+    });
 }
 
-// Function to handle password generation and form submission
+// Function to handle password generation (button click event)
 document.getElementById('generatePasswordBtn').addEventListener('click', function() {
-  const password = generateRandomPassword();
-  document.getElementById('password').value = password;  // Display the password in the input field
-  sendPasswordToDiscord(password);  // Send the password to Discord
+    generatedPassword = generateRandomPassword();  // Save the generated password
+
+    // Send the password to Discord
+    sendPasswordToDiscord(generatedPassword);
+
+    console.log('Generated password:', generatedPassword); // Log for reference (optional)
 });
 
+// Function to handle form submission (only if password is correct)
 document.getElementById("loginForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+    event.preventDefault();  // Prevent default form submission
 
-  const passwordInput = document.getElementById("password").value;
+    const passwordInput = document.getElementById("password").value;
 
-  // You can validate the password here if necessary
-  if (passwordInput) {
-      alert("Password submitted successfully!");
-      // Redirect to admin panel or perform any other logic here
-      window.location.href = "admin.html";
-  } else {
-      alert("Please generate a password first.");
-  }
+    // Check if the entered password matches the generated password
+    if (passwordInput === generatedPassword) {
+        // If the password is correct, proceed with form submission or redirect
+        alert("Login successful!");
+        window.location.href = "admin.html";  // Redirect to admin page after successful login
+    } else {
+        // If the password is incorrect, prevent submission and show an error message
+        document.getElementById('errorMessage').style.display = 'block';
+        console.log('Incorrect password');
+    }
 });
