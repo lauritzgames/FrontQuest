@@ -1,16 +1,12 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
   event.preventDefault();
-  
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  
-  const correctUsername = "admin";
-  const correctPassword = "password123";
 
-  if (username === correctUsername && password === correctPassword) {
-    // Redirect to admin page if login is successful
-    window.location.href = "admin.html";
+  const passwordInput = document.getElementById("password").value;
+
+  // The admin password is injected into this file during deployment (via GitHub Actions)
+  if (passwordInput === adminPassword) {
+    window.location.href = "admin.html";  // Redirect to admin panel if correct
   } else {
-    alert("Invalid credentials, please try again.");
+    alert("Invalid password. Please try again.");
   }
 });
