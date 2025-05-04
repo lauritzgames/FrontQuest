@@ -1,0 +1,347 @@
+/* General styling */
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #121212; /* Dark background */
+    color: #fff; /* White text */
+    margin: 0;
+  }
+  
+  /* Header */
+  header {
+    background: #1c1c1c;
+    color: #ff0000;
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(255, 0, 0, 0.6); /* Red neon glow */
+  }
+  
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  header h1 {
+    font-size: 32px;
+    margin: 0;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  
+  header nav a {
+    background-color: #1c1c1c;
+    color: #ff0000;
+    padding: 12px 24px;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Neon glow */
+    transition: 0.3s;
+  }
+  
+  header nav a:hover {
+    background-color: #ff0000;
+    color: #1c1c1c;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Stronger red glow on hover */
+  }
+  
+  /* Categories Section */
+  #categories {
+    text-align: center;
+    margin: 40px 0;
+  }
+  
+  .category-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .category-btn {
+    background-color: #1c1c1c;
+    color: #ff0000;
+    padding: 12px 24px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Red neon glow */
+    transition: 0.3s;
+  }
+  
+  .category-btn:hover {
+    background-color: #ff0000;
+    color: #1c1c1c;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Stronger red glow on hover */
+  }
+  #app-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  
+  /* App List */
+  #appList {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Grid layout */
+    gap: 20px;
+    justify-items: center; /* Center the cards */
+  }
+  
+  .app-card {
+    background: #1c1c1c;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px; /* Fixed width */
+    width: 100%;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5); /* Red neon glow */
+    text-align: center; /* Center content inside card */
+  }
+  
+  .app-card h3 {
+    color: #ff0000;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  
+  .app-card a {
+    text-decoration: none;
+    color: #ff0000;
+    padding: 10px 20px;
+    border: 2px solid #ff0000;
+    border-radius: 6px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.6); /* Red neon glow */
+  }
+  
+  .app-card a:hover {
+    background-color: #ff0000;
+    color: #1c1c1c;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Stronger red glow on hover */
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1c1c1c;
+    color: #ff0000;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    box-shadow: 0 -2px 10px rgba(255, 0, 0, 0.6); /* Red neon glow */
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  
+  /* Category buttons active state */
+.category-btn.active {
+    background-color: #ff0000;
+    color: #1c1c1c;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+  }
+  
+  /* General styles for form container */
+#upload {
+    background: #1c1c1c;
+    color: #fff;
+    padding: 40px;
+    min-height: 100vh;
+  }
+  
+  .form-container {
+    background-color: #121212;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 32px;
+    color: #ff0000;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff0000;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  form input, form select, form textarea {
+    background-color: #333;
+    color: #fff;
+    border: 2px solid #ff0000;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  form input:focus, form select:focus, form textarea:focus {
+    outline: none;
+    border-color: #ff0000;
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  }
+  
+  form button {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgb(255, 0, 0);
+  }
+  
+  form button:hover {
+    background-color: #fff;
+    color: #1c1c1c;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 1);
+  }
+  
+  /* Footer */
+  footer {
+    background-color: #1c1c1c;
+    color: #ff0000;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    box-shadow: 0 -2px 10px rgb(255, 0, 0);
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 14px;
+  }
+  /* Container for the app details */
+.app {
+    background-color: #1a1a1a;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    margin: 20px;
+    box-shadow: 0 0 15px rgb(189, 0, 0);
+    color: white;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+  .app a {
+    background-color: #cc0202;
+    color: #fff;
+    border: none;
+    padding: 5px 40px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    text-decoration-line: none;
+  }
+  
+  /* Hover effect for app item */
+  .app:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Title of the app */
+  .app h3 {
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  /* Description of the app */
+  .app p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Status display */
+  .app .status {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Neon green border for approved apps */
+  .app.approved {
+    border: 2px solid #fa0000;
+    box-shadow: 0 0 10px #fa0000, 0 0 15px #fa0000;
+  }
+  
+  /* Neon red border for rejected apps */
+  .app.rejected {
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  
+  /* Neon blue border for pending apps */
+  .app.pending {
+    border: 2px solid #00bfff;
+    box-shadow: 0 0 10px #00bfff, 0 0 15px #00bfff;
+  }
+  
+  /* Buttons for accept/reject */
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    outline: none;
+    margin-top: 10px;
+  }
+  
+  /* Accept button with neon green */
+  .accept-btn {
+    background-color: #111;
+    color: #ff0000; /* Neon Green */
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  
+  .accept-btn:hover {
+    background-color: #ff0000;
+    color: #111;
+    box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+  
+  /* Reject button with neon red */
+  .reject-btn {
+    background-color: #111;
+    color: #ff0000; /* Neon Red */
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 15px #ff0000;
+  }
+  
+  .reject-btn:hover {
+    background-color: #ff0000;
+    color: #111;
+    box-shadow: 0 0 20px #ff0000, 0 0 30px #ff0000, 0 0 40px #ff0000;
+  }
+  
+  /* Make sure app list container is ready for grid layout */
+  #app-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+  }
+  

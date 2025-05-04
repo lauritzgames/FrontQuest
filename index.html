@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Front Quest - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>📱 Front Quest App Store</h1>
+      <nav>
+        <a href="upload.html">Upload Your APK</a> <!-- Link to Upload page -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- Categories Section -->
+  <section id="categories">
+    <h2>Categories</h2>
+    <div class="category-buttons">
+        <button class="category-btn" data-category="all">All</button>
+        <button class="category-btn" data-category="pending">Pending</button>
+        <button class="category-btn" data-category="approved">Approved</button>
+        <button class="category-btn" data-category="rejected">Rejected</button>
+    </div>
+  </section>
+
+  <!-- App List -->
+  <h2>📦 App List</h2>
+  <div id="app-list"></div> <!-- Apps will be displayed here -->
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Front Quest App Store. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
