@@ -112,3 +112,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
     fetchApps();
   });
   
+  document.getElementById('logoutBtn').addEventListener('click', function() {
+    // Remove the logged-in status from localStorage
+    localStorage.removeItem('loggedIn');
+    
+    // Redirect to the login page
+    window.location.href = "login.html";
+});

@@ -49,6 +49,9 @@ document.getElementById('generatePasswordBtn').addEventListener('click', functio
     // Send the password to Discord
     sendPasswordToDiscord(generatedPassword);
 
+    // Display the generated password in the input field
+    document.getElementById('password').value = generatedPassword;
+
     console.log('Generated password:', generatedPassword); // Log for reference (optional)
 });
 
@@ -60,6 +63,9 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     // Check if the entered password matches the generated password
     if (passwordInput === generatedPassword) {
+        // Store login status in localStorage
+        localStorage.setItem('loggedIn', 'true');
+
         // If the password is correct, proceed with form submission or redirect
         alert("Login successful!");
         window.location.href = "admin.html";  // Redirect to admin page after successful login
@@ -67,5 +73,15 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
         // If the password is incorrect, prevent submission and show an error message
         document.getElementById('errorMessage').style.display = 'block';
         console.log('Incorrect password');
+    }
+});
+
+// Check if user is already logged in when the page loads
+window.addEventListener('load', function() {
+    const loggedIn = localStorage.getItem('loggedIn');
+
+    if (loggedIn === 'true') {
+        // If already logged in, redirect to admin page
+        window.location.href = "admin.html";
     }
 });
