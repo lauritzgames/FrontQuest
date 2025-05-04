@@ -112,10 +112,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     fetchApps();
   });
   
-  document.getElementById('logoutBtn').addEventListener('click', function() {
-    // Remove the logged-in status from localStorage
-    localStorage.removeItem('loggedIn');
-    
-    // Redirect to the login page
-    window.location.href = "login.html";
+  // Logout functionality
+document.getElementById('logoutBtn').addEventListener('click', function() {
+  localStorage.removeItem('loggedIn');
+  localStorage.removeItem('isAdmin');
+  window.location.href = "login.html";
+});
+
+
+// Check if user is logged in and has admin rights when accessing the admin page
+window.addEventListener('load', function() {
+  const loggedIn = localStorage.getItem('loggedIn');
+  const isAdmin = localStorage.getItem('isAdmin');
+
+  if (loggedIn !== 'true' || isAdmin !== 'true') {
+      // If not logged in or not an admin, redirect to login page
+      window.location.href = "login.html";
+  }
 });

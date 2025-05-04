@@ -63,8 +63,9 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
 
     // Check if the entered password matches the generated password
     if (passwordInput === generatedPassword) {
-        // Store login status in localStorage
+        // Store login status and admin rights in localStorage
         localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('isAdmin', 'true'); // Set this to true for admin access
 
         // If the password is correct, proceed with form submission or redirect
         alert("Login successful!");
