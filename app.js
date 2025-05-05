@@ -99,6 +99,7 @@ const API_KEY = "$2a$10$EsCCuXfyAxRHJCUcwZDV1OsHaovRf3c.VzxRNRVuYc1BE0EzzmFh."; 
     appList.innerHTML = ""; // Clear existing apps
   
     apps.forEach(app => {
+      if (app.status !== "rejected") {
       const div = document.createElement("div");
       div.className = `app ${app.status}`; // Dynamically add status as a class
   
@@ -113,6 +114,7 @@ const API_KEY = "$2a$10$EsCCuXfyAxRHJCUcwZDV1OsHaovRf3c.VzxRNRVuYc1BE0EzzmFh."; 
         ` : ""}
       `;
       appList.appendChild(div);
+        }
     });
   
     // Attach event listeners to the buttons
